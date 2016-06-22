@@ -1,0 +1,6 @@
+#! /bin/zsh
+
+ag -l "let.*=\W*require" | xargs -n 1 sed -i.bak 's/\(^let\)\(.*require.*$\)/const\2/g'
+
+# delete all backup files
+find . -name "*.bak" -type f -delete
